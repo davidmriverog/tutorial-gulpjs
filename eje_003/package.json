@@ -9,6 +9,7 @@
   "author": "David Rivero",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^1.5.3"
   }
 }
