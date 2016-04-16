@@ -2,8 +2,10 @@
 * Dependencias generales
 */
 var gulp     =  require('gulp'),
-    uglify   =  require('uglify');
+    jade     =  require('gulp-jade');
 
-gulp.task('saludar',function(){
-  console.log("Hola este es mi primera tarea");
+gulp.task('JadetoHtml',function(){
+  return gulp.src('src/templates/**/*.jade')
+    .pipe(jade())
+    .pipe(gulp.dest('app/views'));
 });
