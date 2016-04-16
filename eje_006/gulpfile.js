@@ -2,14 +2,13 @@
 * Dependencias generales
 */
 var gulp     =  require('gulp'),
-    stylus   =  require('gulp-stylus');
-
-gulp.task('stylusToCss',function(){
-  return gulp.src('src/css/main.styl')
-    .pipe(
-      stylus({
-        compress: true
-      })
-    )
-    .pipe(gulp.dest('dist/css'));
+    uglify   =  require('gulp-uglify'),
+    concat   =  require('gulp-concat');
+	
+// Inicializador de tareas 
+gulp.task('jsconcat',function(){
+  return gulp.src('src/js/**/*.js')
+    .pipe(concat('operation.min.js'))
+	.pipe(uglify())
+	.pipe(gulp.dest('dist/js'));
 });
