@@ -20,9 +20,20 @@ gulp.task('cssconcat',function(){
 
 gulp.task('jsconcat',function(){
   return gulp.src('src/js/**/*.js')
-    .pipe(concat('operation.min.js'))
+    .pipe(concat('operation.js'))
 	.pipe(uglify())
+	.pipe(rename({suffix:'.min'}))
 	.pipe(gulp.dest('dist/js'));
+});
+
+// esta tarea permite mirar los cambios en el fichero src/ de desarrollo 
+// para luego desplegarlos en produccion cada vez que guardes un cambios
+// de manera automatizada. xD....
+gulp.task('watch',function(){
+  // automatizacion de los css
+  gulp.watch('src/css/**/*.css',['cssconcat']);
+  // automatizacion de los js
+  gulp.watch('src/js/**/*.js',['jsconcat']);
 });
 
 // iniciamos nuestro gestor automatico de tareas multiples.
